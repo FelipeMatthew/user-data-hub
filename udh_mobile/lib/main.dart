@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:udh_mobile/pages/home.dart';
+import 'package:udh_mobile/pages/splash.dart';
 
 void main() => runApp(const MyApp());
 
@@ -8,7 +8,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const HomeScreen();
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'User data hub',
+      home: SplashScreen(),
+    );
   }
 }
-
