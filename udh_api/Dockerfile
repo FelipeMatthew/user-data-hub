@@ -13,6 +13,8 @@ FROM gcr.io/distroless/base-debian12
 
 WORKDIR /app
 
+COPY .env .env
+
 COPY --from=build /go/src/ms/client_api .
 
 EXPOSE 8080

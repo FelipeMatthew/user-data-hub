@@ -25,7 +25,7 @@ func Generate(e *echo.Echo) {
 	admin.DELETE("/:id", handlers.DeleteAdmin)
 
 	// Clients routes
-	client := protected.Group("/client")
+	client := e.Group("/client")
 
 	client.GET("/", handlers.GetAllClients)
 	client.GET("/:id", handlers.GetByIdClient)
