@@ -18,14 +18,15 @@ class Client {
   });
 
   // Factory method to create a Client instance from JSON
+  // guarantee that gonna return int type
   factory Client.fromJson(Map<String, dynamic> json) {
     return Client(
-      id: json['id'],
-      firstName: json['first_name'],
-      lastName: json['last_name'],
-      email: json['email'],
-      age: json['age'],
-      phone: json['phone'],
+      id: json['Id'] ?? 0,
+      firstName: json['first_name'] ?? '',
+      lastName: json['last_name'] ?? '',
+      email: json['email'] ?? '',
+      age: json['age'] ?? 0,
+      phone: json['phone'] ?? '',
     );
   }
 

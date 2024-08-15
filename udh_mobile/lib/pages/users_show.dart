@@ -10,38 +10,68 @@ class UsersShowScreen extends StatefulWidget {
 }
 
 class _UsersShowScreenState extends State<UsersShowScreen> {
-  late Future<Client> futureClient;
+  late Future<List<Client>> futureClient;
 
   @override
   void initState() {
     super.initState();
-    // Fetching the client
+    // Fetching the clients
     futureClient = fetchClients();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text('Usuários cadastrados'),
-        ),
-        body: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 20, left: 30),
-              child: FutureBuilder<Client>(
-                  future: futureClient,
-                  builder: (context, snapshot) {
-                    if (snapshot.hasData) {
-                      return Text(snapshot.data!.email);
-                    } else if (snapshot.hasError) {
-                      return Text('${snapshot.error}');
-                    }
+      appBar: AppBar(
+        title: const Text('Usuários cadastrados'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.only(top: 20, left: 10),
+        child: FutureBuilder<List<Client>>(
+          future: futureClient,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              return ListView.builder(
+                itemCount: snapshot.data!.length,
+                itemBuilder: (context, index) {
+                  final client = snapshot.data![index];
+                  return ListTile(
+                    leading: const Icon(
+                      Icons.account_circle,
+                      size: 35,
+                    ),
+                    title: Text("${client.firstName} ${client.lastName}"),
+                    subtitle: Text(client.email),
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(
+                          icon: const Icon(Icons.edit),
+                          onPressed: () {
+                            // Ação ao clicar no ícone de lápis
+                          },
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.delete),
+                          onPressed: () {
+                            // Ação ao clicar no ícone de lixeira
+                          },
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              );
+            } else if (snapshot.hasError) {
+              return Text('${snapshot.error}');
+            }
 
-                    return const CircularProgressIndicator();
-                  }),
-            )
-          ],
-        ));
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
+          },
+        ),
+      ),
+    );
   }
 }
