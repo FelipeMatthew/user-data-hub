@@ -22,3 +22,5 @@ Colors
 default - 20,13,54 - #140D36
 items - #2C206A, 21,20,27
 text - white
+
+todo: rework splash screen
