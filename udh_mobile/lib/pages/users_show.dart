@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:udh_mobile/models/client.dart';
 import 'package:udh_mobile/services/client.dart';
@@ -37,7 +38,7 @@ class _UsersShowScreenState extends State<UsersShowScreen> {
                   final client = snapshot.data![index];
                   return ListTile(
                     leading: const Icon(
-                      Icons.account_circle,
+                      CupertinoIcons.person,
                       size: 35,
                     ),
                     title: Text("${client.firstName} ${client.lastName}"),
@@ -46,13 +47,13 @@ class _UsersShowScreenState extends State<UsersShowScreen> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         IconButton(
-                          icon: const Icon(Icons.edit),
+                          icon: const Icon(CupertinoIcons.pencil),
                           onPressed: () {
                             // Ação ao clicar no ícone de lápis
                           },
                         ),
                         IconButton(
-                          icon: const Icon(Icons.delete),
+                          icon: const Icon(CupertinoIcons.trash),
                           onPressed: () {
                             // Ação ao clicar no ícone de lixeira
                           },
