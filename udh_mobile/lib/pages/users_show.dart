@@ -23,8 +23,13 @@ class _UsersShowScreenState extends State<UsersShowScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(20, 13, 54, 1),
       appBar: AppBar(
+        backgroundColor: const Color.fromRGBO(20, 13, 54, 1),
+        iconTheme: const IconThemeData(color: Colors.white),
         title: const Text('Usuários cadastrados'),
+        titleTextStyle: const TextStyle(
+            color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
       ),
       body: Padding(
         padding: const EdgeInsets.only(top: 20, left: 10),
@@ -40,20 +45,37 @@ class _UsersShowScreenState extends State<UsersShowScreen> {
                     leading: const Icon(
                       CupertinoIcons.person,
                       size: 35,
+                      color: Colors.white,
                     ),
-                    title: Text("${client.firstName} ${client.lastName}"),
-                    subtitle: Text(client.email),
+                    title: Text(
+                      "${client.firstName} ${client.lastName}",
+                      style: const TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                    subtitle: Text(
+                      client.email,
+                      style: const TextStyle(
+                        color: Color.fromARGB(115, 255, 255, 255),
+                      ),
+                    ),
                     trailing: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         IconButton(
-                          icon: const Icon(CupertinoIcons.pencil),
+                          icon: const Icon(
+                            CupertinoIcons.pencil,
+                            color: Colors.white,
+                          ),
                           onPressed: () {
                             // Ação ao clicar no ícone de lápis
                           },
                         ),
                         IconButton(
-                          icon: const Icon(CupertinoIcons.trash),
+                          icon: const Icon(
+                            CupertinoIcons.trash,
+                            color: Colors.white,
+                          ),
                           onPressed: () {
                             // Ação ao clicar no ícone de lixeira
                           },

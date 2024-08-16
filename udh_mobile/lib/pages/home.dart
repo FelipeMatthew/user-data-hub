@@ -16,6 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(20, 13, 54, 1),
       appBar: AppBar(
+          // Button to return to page off
           automaticallyImplyLeading: false,
           backgroundColor: const Color.fromRGBO(20, 13, 54, 1),
           title: const Row(
