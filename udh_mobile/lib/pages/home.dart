@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:udh_mobile/pages/users_show.dart';
 import 'package:udh_mobile/widgets/navigation_menu.dart';
@@ -13,9 +14,27 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color.fromRGBO(20, 13, 54, 1),
       appBar: AppBar(
-        title: const Text('Home Screen'),
-      ),
+          automaticallyImplyLeading: false,
+          backgroundColor: const Color.fromRGBO(20, 13, 54, 1),
+          title: const Row(
+            children: [
+              Icon(
+                CupertinoIcons.home,
+                color: Colors.white,
+              ),
+              SizedBox(width: 15),
+              Text(
+                'Home',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 25,
+                ),
+              ),
+            ],
+          )),
       body: Center(
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
