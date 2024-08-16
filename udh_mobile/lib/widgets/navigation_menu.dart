@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:udh_mobile/pages/home.dart';
-import 'package:udh_mobile/pages/users_show.dart';
+import 'package:udh_mobile/pages/login.dart';
+import 'package:udh_mobile/pages/client/create.dart';
+import 'package:udh_mobile/pages/client/get_all.dart';
 
 class NavigationMenu extends StatelessWidget {
   const NavigationMenu({super.key});
@@ -63,25 +65,25 @@ class NavigationMenu extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const UsersShowScreen()));
+                    builder: (context) => const ClientShowScreen()));
             break;
           case 2:
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const UsersShowScreen()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const ClientCreate()));
             break;
           case 3:
             Navigator.push(
                 context,
+                // todo open lateral bar with user info
                 MaterialPageRoute(
-                    builder: (context) => const UsersShowScreen()));
+                    builder: (context) => const ClientShowScreen()));
             break;
           case 4:
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (context) => const UsersShowScreen()));
+                    // todo validate and clean the jwt token
+                    builder: (context) => const LoginScreen()));
             break;
         }
       },

@@ -3,14 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:udh_mobile/models/client.dart';
 import 'package:udh_mobile/services/client.dart';
 
-class UsersShowScreen extends StatefulWidget {
-  const UsersShowScreen({super.key});
+class ClientShowScreen extends StatefulWidget {
+  const ClientShowScreen({super.key});
 
   @override
-  State<UsersShowScreen> createState() => _UsersShowScreenState();
+  State<ClientShowScreen> createState() => _ClientShowScreenState();
 }
 
-class _UsersShowScreenState extends State<UsersShowScreen> {
+class _ClientShowScreenState extends State<ClientShowScreen> {
   late Future<List<Client>> futureClient;
 
   @override

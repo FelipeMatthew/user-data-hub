@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:udh_mobile/pages/users_show.dart';
+import 'package:udh_mobile/pages/client/get_all.dart';
 import 'package:udh_mobile/widgets/navigation_menu.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -45,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const UsersShowScreen()));
+                      builder: (context) => const ClientShowScreen()));
             },
             style: ElevatedButton.styleFrom(
               backgroundColor:
