@@ -72,11 +72,8 @@ class NavigationMenu extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => const ClientCreate()));
             break;
           case 3:
-            Navigator.push(
-                context,
-                // todo open lateral bar with user info
-                MaterialPageRoute(
-                    builder: (context) => const ClientShowScreen()));
+            print("Tentando abrir o endDrawer");
+            Scaffold.of(context).openEndDrawer();
             break;
           case 4:
             Navigator.push(

@@ -17,7 +17,7 @@ class _CustomDrawerState extends State<CustomDrawer> {
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
-        color: const Color.fromRGBO(20, 13, 54, 1),
+        color: const Color.fromARGB(255, 21, 20, 27),
         child: ListView(
           padding: EdgeInsets.zero,
           children: [

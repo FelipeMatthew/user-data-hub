@@ -68,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       )),
       endDrawer: CustomDrawer(),
-      bottomNavigationBar: const NavigationMenu(),
+      bottomNavigationBar: NavigationMenu(), // Passando o context
     );
   }
 }
