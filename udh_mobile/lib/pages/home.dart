@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:udh_mobile/pages/client/get_all.dart';
+import 'package:udh_mobile/widgets/drawer.dart';
 import 'package:udh_mobile/widgets/navigation_menu.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -16,6 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: const Color.fromRGBO(20, 13, 54, 1),
       appBar: AppBar(
+          iconTheme: IconThemeData(color: Colors.white, size: 30),
           // Button to return to page off
           automaticallyImplyLeading: false,
           backgroundColor: const Color.fromRGBO(20, 13, 54, 1),
@@ -65,6 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       )),
+      endDrawer: CustomDrawer(),
       bottomNavigationBar: const NavigationMenu(),
     );
   }
