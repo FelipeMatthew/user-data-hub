@@ -27,7 +27,7 @@ class _ClientShowScreenState extends State<ClientShowScreen> {
       appBar: AppBar(
         backgroundColor: const Color.fromRGBO(20, 13, 54, 1),
         iconTheme: const IconThemeData(color: Colors.white),
-        title: const Text('Usuários cadastrados'),
+        title: const Text('Registered clients'),
         titleTextStyle: const TextStyle(
             color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
       ),

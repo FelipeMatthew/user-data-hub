@@ -28,6 +28,12 @@ class _ClientCreateState extends State<ClientCreate> {
           child: Column(
             children: [
               const SizedBox(height: 28),
+              Icon(
+                CupertinoIcons.person,
+                color: Colors.white,
+                size: 150,
+              ),
+              const SizedBox(height: 28),
               const CustomInput(
                 hintText: 'First name',
                 icon: CupertinoIcons.person,
