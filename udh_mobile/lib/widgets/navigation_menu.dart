@@ -34,7 +34,8 @@ class NavigationMenu extends StatelessWidget {
         ),
         NavigationDestination(
           icon: Icon(
-            CupertinoIcons.plus,
+            CupertinoIcons.plus_app,
+            size: 45,
             color: Colors.white,
           ),
           label: '',
