@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:udh_mobile/models/login.dart';
 import 'package:udh_mobile/pages/home.dart';
+import 'package:udh_mobile/services/login.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -11,6 +13,37 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool _obscureText = true;
+
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  void _login() async {
+    try {
+      final request = LoginRequest(
+          username: _usernameController.text,
+          password: _passwordController.text);
+
+      await login(request);
+
+      // Todo safe the token on storage
+      //if (response != null) {
+      // Aqui você pode salvar o token no storage do dispositivo, se necessário.
+      // Por exemplo, utilizando o pacote `shared_preferences`.
+      // await SharedPreferences.getInstance().then((prefs) {
+      //   prefs.setString('jwt_token', response.token);
+      // });
+
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const HomeScreen()),
+      );
+    } catch (e) {
+      print(e);
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('User or password incorrect')),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,10 +72,9 @@ class _LoginScreenState extends State<LoginScreen> {
                 Container(
                   height: 28,
                 ),
-                const TextField(
+                TextField(
                   style: TextStyle(color: Colors.white),
-                  // todo - Tratamento de dados e passar por parametro
-                  // controller: _username,
+                  controller: _usernameController,
                   decoration: InputDecoration(
                     border: OutlineInputBorder(
                       borderSide: BorderSide(color: Colors.white, width: 1.0),
@@ -61,6 +93,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 TextField(
                   style: const TextStyle(color: Colors.white),
+                  controller: _passwordController,
                   obscureText: _obscureText,
                   decoration: InputDecoration(
                     border: const OutlineInputBorder(
@@ -90,12 +123,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 30,
                 ),
                 ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const HomeScreen()));
-                  },
+                  onPressed: _login,
                   style: ElevatedButton.styleFrom(
                     backgroundColor:
                         const Color.fromARGB(255, 21, 20, 27), // Cor de fundo
