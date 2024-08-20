@@ -17,3 +17,17 @@ Future<List<Client>> fetchClients() async {
     throw Exception('Failed to load client.');
   }
 }
+
+Future<Client> createClient(Client client) async {
+  final response = await http.post(Uri.parse(ApiRoutes.clientRoutes),
+      headers: <String, String>{
+        'Content-Type': 'application/json; charset=UTF-8'
+      },
+      body: client.toJsonString());
+
+  if (response.statusCode == 201) {
+    return Client.fromJson(jsonDecode(response.body));
+  } else {
+    throw Exception('Failed to create client.');
+  }
+}

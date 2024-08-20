@@ -4,12 +4,13 @@ class CustomInput extends StatelessWidget {
   final String hintText;
   final IconData icon;
   final TextInputType keyboardType;
-  // final TextEditingController controller;
+  final TextEditingController controller;
 
   const CustomInput(
       {super.key,
       required this.hintText,
       required this.icon,
+    required this.controller,
       this.keyboardType = TextInputType.text});
 
   @override
@@ -17,7 +18,7 @@ class CustomInput extends StatelessWidget {
     return TextField(
       style: const TextStyle(color: Colors.white),
       keyboardType: keyboardType,
-      // controller: controller,
+      controller: controller,
       decoration: InputDecoration(
         labelStyle: const TextStyle(color: Colors.white),
         hintStyle: const TextStyle(color: Colors.white),
