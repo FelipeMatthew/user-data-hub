@@ -4,5 +4,6 @@ class ApiRoutes {
 
   // Client routes
   static const String clientRoutes = '$apiBaseUrl/client/';
+  static const String loginRoutes = '$apiBaseUrl/login';
   // admin routes
 }
